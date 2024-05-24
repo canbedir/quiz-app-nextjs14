@@ -3,5 +3,5 @@
   @tailwind utilities;
   
 html,body,:root{
-  @apply bg-slate-600
+  @apply bg-mycolor-200
 }

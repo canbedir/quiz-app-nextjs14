@@ -15,7 +15,7 @@ const Navbar = () => {
             <div>
 
                 <Link href={"/"} className='flex items-center justify-center gap-1 text-2xl'>
-                    <h1 className='text-mycolor-300 font-bold'>QuizCode</h1>
+                    <h1 className='text-mycolor-300 font-bold'>hixQuiz</h1>
                     <AiTwotoneStar className='text-mycolor-300'/>
                 </Link>
 

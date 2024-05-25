@@ -24,6 +24,11 @@ export default function Home() {
         </Button>
   
       </div>
+
+      <span className="absolute left-5 bottom-6 text-white">
+        Proje geliştirme aşamasındadır, şuanlık sadece javascript soruları var. Soru kategorileri eklenecektir.
+      </span>
+      
     </section>
   );
 }

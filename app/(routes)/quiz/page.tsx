@@ -1,9 +1,26 @@
+import { getData } from '@/actions/getData';
+import { getByUserId } from '@/actions/getUser';
+import { auth } from '@clerk/nextjs/server'
+import { redirect } from 'next/navigation';
 import React from 'react'
+import Quiz from '../_components/Quiz';
 
-const page = () => {
+const QuizPage = async() => {
+
+  const {userId} = auth();
+
+  if(!userId) redirect("/sign-in");
+
+  const user = await getByUserId(userId);
+
+  const questions = await getData()
+
+  
   return (
-    <div>page</div>
+    <div>
+      <Quiz questions={questions} userId={user?.id}/>
+    </div>
   )
 }
 
-export default page
+export default QuizPage

@@ -26,7 +26,7 @@ const LeaderBoardsPage = async () => {
         {users.map((user, index) => (
           <li
             key={user.id}
-            className={`py-4 px-6 rounded-lg bg-mycolor-100 border-2 text-white border-mycolor-300 ${index < 3 ? "font-bold" : ""}`}
+            className={`py-4 px-6 rounded-lg bg-mycolor-100 border-2 mb-4 text-white border-mycolor-300 ${index < 3 ? "font-bold" : ""}`}
           >
             <div className="flex items-center gap-5 w-full">
               <div className="flex sm:flex-row flex-col gap-1 justify-between w-full items-center">

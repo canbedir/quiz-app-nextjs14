@@ -66,7 +66,7 @@ const Quiz = ({ questions, userId }: QuizProps) => {
     return () => {
       stopTimer();
     };
-  }, []);
+  }, [handleTimeUp]);
 
   ///// event
 

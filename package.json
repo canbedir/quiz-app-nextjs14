@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "prisma generate && prisma migrate"
+    "predeploy": "prisma generate && prisma migrate"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.1.1",

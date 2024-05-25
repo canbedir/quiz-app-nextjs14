@@ -16,7 +16,7 @@ const StatsPage = async() => {
     <div className='py-20'>
         <div className='text-center mb-10 text-2xl'>
             <h3 className='text-white text-3xl font-light mb-5'>
-                {currentUser?.username}'s Stats
+                {currentUser?.username}&apos;s Stats
             </h3>
 
         <div className='max-w-[1500px] mx-auto w-[90%] flex  justify-center py-10 flex-col'>

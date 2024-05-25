@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import StatCard from "./StatCard";
 
 interface QuizProps {
@@ -42,7 +42,7 @@ const Quiz = ({ questions, userId }: QuizProps) => {
       handleTimeUp();
     }
     return () => clearTimeout(timer);
-  }, [timerRunning, timeRemaining]);
+  }, [timerRunning, timeRemaining,]);
 
   const startTimer = () => {
     setTimerRunning(true);
@@ -54,11 +54,11 @@ const Quiz = ({ questions, userId }: QuizProps) => {
     setTimeRemaining(25);
   };
 
-  const handleTimeUp = () => {
+  const handleTimeUp = useCallback(() => {
     stopTimer();
     resetTimer();
     nextQuestion();
-  };
+  },[]);
 
   useEffect(() => {
     startTimer();
@@ -66,7 +66,7 @@ const Quiz = ({ questions, userId }: QuizProps) => {
     return () => {
       stopTimer();
     };
-  }, [handleTimeUp]);
+  }, []);
 
   ///// event
 

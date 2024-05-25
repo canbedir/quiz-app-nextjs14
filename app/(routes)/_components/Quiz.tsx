@@ -32,6 +32,7 @@ const Quiz = ({questions,userId}:QuizProps) => {
     const handleTimeUp=()=>{
         stopTimer()
         resetTimer()
+        nextQuestion()
     }
 
     useEffect(()=>{
@@ -66,10 +67,42 @@ const Quiz = ({questions,userId}:QuizProps) => {
         }
     },[])
 
+
+
     /// event
 
-    const onAnswerSelected = (answer:string, idx:number)=>{
 
+
+    const onAnswerSelected = (answer:string, idx:number)=>{
+        setChecked(true)
+        setSelectedAnswerIndex(idx)
+        if(answer===correctAnswers){
+            setSelectedAnswer(answer)
+        }else{
+            setSelectedAnswer("")
+        }
+    }
+
+    const nextQuestion = () =>{
+        setSelectedAnswerIndex(null)
+        setChecked(false)
+        resetTimer()
+        startTimer()
+        setResults((prev)=>
+        selectedAnswer ? {
+            ...prev,
+            score:prev.score+5,
+            correctAnswers:prev.correctAnswers+1
+        }:{
+            ...prev,
+            wrongAnswers:prev.wrongAnswers+1
+        })
+        if(activeQuestion !=questions.length-1){
+            setActiveQuestion((prev)=>prev+1)
+        }else{
+            setShowResult(true)
+            stopTimer()
+        }
     }
 
   return (
@@ -109,7 +142,7 @@ const Quiz = ({questions,userId}:QuizProps) => {
                                 
                                 className={`cursor-pointer mb-5 px-4 p-2 py-3 border text-white border-white rounded-lg hover:bg-mycolor-100 
 
-                                    ${parseInt(selectedAnswer) === idx && "text-white bg-sky-700/60 font-semibold"}
+                                    ${selectedAnswerIndex === idx && "text-white hover:bg-sky-700 bg-sky-700 font-semibold"}
                                 `}
                                 >
                                     <span>{answer}</span>
@@ -117,7 +150,10 @@ const Quiz = ({questions,userId}:QuizProps) => {
                             ))}
                         </ul>
 
-                            <Button variant={"nextquestion"} size={"xl"}>
+                            <Button variant={"nextquestion"} size={"xl"}
+                                onClick={nextQuestion}
+                                disabled={!checked}
+                            >
                                 {activeQuestion === questions.length-1 ? "Finish" : "Next Question"} 
                             </Button>
 

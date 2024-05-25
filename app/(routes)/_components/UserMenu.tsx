@@ -14,7 +14,7 @@ const UserMenu = () => {
     }
 
     const links = [
-        {name:"stats", path:"/stats"},
+        {name:"Stats", path:"/stats"},
         {name:"Leaderboards", path:"/leaderboards"}
     ]
 

@@ -7,7 +7,7 @@ export default function Home() {
     <section className="flex items-center justify-center min-h-screen text-center">
       <div className="px-4 max-w-[1500px] mx-auto w-[90%] space-y-3">
         <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-mycolor-300">
-          Ready to take this week's quiz?
+          Ready to take this week&apos;s  quiz?
         </h1>
         <p className="text-mycolor-500 mt-6">Get ready to ace it</p>
 

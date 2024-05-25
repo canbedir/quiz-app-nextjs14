@@ -109,7 +109,7 @@ const Quiz = ({questions,userId}:QuizProps) => {
                                 
                                 className={`cursor-pointer mb-5 px-4 p-2 py-3 border text-white border-white rounded-lg hover:bg-mycolor-100 
 
-                                    ${selectedAnswer === idx && "text-white bg-sky-700/60 font-semibold"}
+                                    ${parseInt(selectedAnswer) === idx && "text-white bg-sky-700/60 font-semibold"}
                                 `}
                                 >
                                     <span>{answer}</span>
